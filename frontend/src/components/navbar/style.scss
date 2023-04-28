@@ -1,0 +1,21 @@
+#nav {
+  background: lightblue;
+  width: 100vw;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .pageLink {
+    &:hover {
+      color: teal !important;
+      cursor: pointer;
+      font-weight: 900;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #title {
+    display: none;
+  }
+}
