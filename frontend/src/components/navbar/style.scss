@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: space-around;
   .pageLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     &:hover {
       color: teal !important;
       cursor: pointer;
@@ -14,7 +18,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 376px) {
   #title {
     display: none;
   }

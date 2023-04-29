@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import AdmitCardDownload from "./pages/AdmitCardDownload";
+import AdmitCardDownload from "./pages/admitCard/AdmitCardDownload";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 function App() {

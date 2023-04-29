@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "./style.scss";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
 const Home = () => {
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     name: "",
-    number: 0,
+    phone: 0,
     school: "",
     class: "",
     roll_no: 0,
@@ -18,7 +24,55 @@ const Home = () => {
 
   const handelSubmit = (event) => {
     event.preventDefault();
-    console.log(value);
+    try {
+      axios.post("http://localhost:5000/", { ...value }).then((res) => {
+        if (res.data.status) {
+          toast.success("user Admitcard data Add Sucessfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+          setTimeout(() => {
+            navigate("/admitcard");
+          }, 3000);
+
+          useNavi;
+        } else {
+
+          console.log(res);
+          if (res.data.reason) {
+            toast.error(res.data.reason, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+          } else {
+            toast.error("Please fill all details", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+          }
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div
@@ -42,9 +96,9 @@ const Home = () => {
           <label>Enter phone </label>
           <br></br>
           <input
-            type="number"
-            id="number"
-            name="number"
+            type="phone"
+            id="phone"
+            name="phone"
             onChange={(event) => handelChange(event)}
           />
 
@@ -88,6 +142,7 @@ const Home = () => {
           <input type="submit" value="submit" />
         </fieldset>
       </form>
+      <ToastContainer />
     </div>
   );
 };

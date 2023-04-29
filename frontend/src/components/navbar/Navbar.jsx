@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.scss";
+import { BsArrowDownCircleFill } from 'react-icons/bs';
+
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
@@ -10,7 +12,7 @@ const Navbar = () => {
       </Link>
 
       <Link style={{ textDecoration: "none" }} to="/admitcard">
-        <div className="pageLink">Download Admit Card </div>
+        <div className="pageLink">Download Admit Card   <BsArrowDownCircleFill/> </div>
       </Link>
     </div>
   );
