@@ -36,7 +36,7 @@ const AdmitCardDownload = () => {
     setPdfBlob(x);
   };
   function getdata() {
-    axios.get("http://localhost:5000/userdetails").then((res) => {
+    axios.get("https://viklpa-backend.onrender.com/userdetails").then((res) => {
       setData(res.data);
     });
   }

@@ -25,7 +25,7 @@ const Home = () => {
   const handelSubmit = (event) => {
     event.preventDefault();
     try {
-      axios.post("http://localhost:5000/", { ...value }).then((res) => {
+      axios.post("https://viklpa-backend.onrender.com/", { ...value }).then((res) => {
         if (res.data.status) {
           toast.success("user Admitcard data Add Sucessfully", {
             position: "top-right",
