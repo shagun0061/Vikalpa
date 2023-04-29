@@ -1,34 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 const Home = () => {
+  const [value, setValue] = useState({
+    name: "",
+    number: 0,
+    school: "",
+    class: "",
+    roll_no: 0,
+    address: "",
+  });
+
+  const handelChange = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setValue({ ...value, [event.target.name]: event.target.value });
+  };
+
+  const handelSubmit = (event) => {
+    event.preventDefault();
+    console.log(value);
+  };
   return (
-    <div id="formMain">
+    <div
+      id="formMain"
+      onSubmit={(event) => {
+        handelSubmit(event);
+      }}
+    >
       <form>
         <fieldset>
           <legend>User Information:</legend>
-          <label for="name">Enter name</label>
+          <label>Enter name</label>
           <br></br>
-          <input type="text" id="name" name="name" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            onChange={(event) => handelChange(event)}
+          />
           <br></br>
-          <label for="number">Enter phone </label>
+          <label>Enter phone </label>
           <br></br>
-          <input type="number" id="number" name="number" />
+          <input
+            type="number"
+            id="number"
+            name="number"
+            onChange={(event) => handelChange(event)}
+          />
 
-          <label for="school">Enter school </label>
+          <label>Enter school </label>
           <br></br>
-          <input type="text" id="school" name="school" />
+          <input
+            type="text"
+            id="school"
+            name="school"
+            onChange={(event) => handelChange(event)}
+          />
 
-          <label for="class">Enter class </label>
+          <label>Enter class </label>
           <br></br>
-          <input type="text" id="class" name="class" />
+          <input
+            type="text"
+            id="class"
+            name="class"
+            onChange={(event) => handelChange(event)}
+          />
 
-          <label for="roll_no">Enter roll no </label>
+          <label>Enter roll no </label>
           <br></br>
-          <input type="number" id="roll_no" name="roll_no" />
+          <input
+            type="number"
+            id="roll_no"
+            name="roll_no"
+            onChange={(event) => handelChange(event)}
+          />
 
-          <label for="address">Enter address </label>
+          <label>Enter address </label>
           <br></br>
-          <input type="text" id="address" name="address" />
+          <input
+            type="text"
+            id="address"
+            name="address"
+            onChange={(event) => handelChange(event)}
+          />
 
           <br></br>
           <input type="submit" value="submit" />
